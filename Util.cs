@@ -4,8 +4,11 @@ using System.Linq;
 using System.Media;
 using System.Threading;
 
-namespace ASCII_Invaders
+﻿namespace ASCII_Invaders
 {
+    /// <summary>
+    /// Class <c>Util</c> is the class for utility methods
+    /// </summary>
     public static class Util
     {
         public static string exePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -26,6 +29,10 @@ namespace ASCII_Invaders
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Method <c>ReadBestScore</c> reads the best score from file
+        /// </summary>
+        /// <returns>Best score</returns>
         public static int ReadBestScore()
         {
             if (File.Exists("score.dat"))
@@ -39,6 +46,10 @@ namespace ASCII_Invaders
             return 0;
         }
 
+        /// <summary>
+        /// Method <c>WriteBestScore</c> writes the best score to file
+        /// </summary>
+        /// <param name="score">Best score</param>
         public static void WriteBestScore(int score)
         {
             using (StreamWriter outputFile = new StreamWriter(Constant.ScoreFile))
@@ -47,11 +58,20 @@ namespace ASCII_Invaders
             }
         }
 
+        /// <summary>
+        /// Method <c>Wait</c> waits for a certain amount of time
+        /// </summary>
+        /// <param name="milliseconds">Milliseconds to wait</param>
         public static void Wait(int milliseconds)
         {
             Thread.Sleep(milliseconds);
         }
 
+        /// <summary>
+        /// Method <c>PadCenter</c> pads a string with spaces to center it
+        /// </summary>
+        /// <param name="text">Text to be padded</param>
+        /// <returns>Padded text</returns>
         public static string PadCenter(string text)
         {
             int length = 50;

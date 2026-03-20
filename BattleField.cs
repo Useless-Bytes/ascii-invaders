@@ -4,7 +4,7 @@ using System.Linq;
 namespace ASCII_Invaders
 {
     /// <summary>
-    /// Class <c>BattleField</c> refers to the battle field
+    /// Class <c>BattleField</c> is the class for the battle field game object
     /// </summary>
     /// <author>
     /// </author>

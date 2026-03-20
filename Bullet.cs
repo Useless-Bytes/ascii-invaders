@@ -3,7 +3,7 @@
 namespace ASCII_Invaders
 {
     /// <summary>
-    /// Class <c>Bullet</c> refers to... the bullets :)
+    /// Class <c>Bullet</c> is the class for the bullet game object
     /// </summary>
     class Bullet : GameObject
     {

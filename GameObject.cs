@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace ASCII_Invaders
 {
+    /// <summary>
+    /// Class <c>GameObject</c> is the base class for game objects
+    /// </summary>
     public class GameObject
     {
         public string Sprite { get; set; }

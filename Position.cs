@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ASCII_Invaders
+﻿namespace ASCII_Invaders
 {
+    /// <summary>
+    /// Class <c>Position</c> is the class for the position of game objects
+    /// </summary>
     public class Position
     {
         public int X { get; set; }

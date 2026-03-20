@@ -3,7 +3,7 @@
 namespace ASCII_Invaders
 {
     /// <summary>
-    /// Class <c>Cannon</c> refers to the cannon
+    /// Class <c>Cannon</c> is the class for the cannon game object
     /// </summary>
     class Cannon : GameObject
     {

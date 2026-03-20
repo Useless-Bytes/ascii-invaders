@@ -3,7 +3,7 @@
 namespace ASCII_Invaders
 {
     /// <summary>
-    /// Class <c>GameObject</c> is the base class for game objects
+    /// Class <c>Enemy</c> is the class for enemy game objects
     /// </summary>
     class Enemy : GameObject
     {
