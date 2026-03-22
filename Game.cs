@@ -9,8 +9,6 @@ namespace ASCII_Invaders
     /// </summary>
     class Game
     {
-        public bool PlaySound { get; set; }
-
         private bool keepRunning;
         public  int aliveEnemies;
         private  int _score;
@@ -110,11 +108,17 @@ namespace ASCII_Invaders
             Console.Clear();
             Console.CursorVisible = false;
             Console.TreatControlCAsInput = true; // disable CTRL-C
+
+            var ubLogo = new Logo();
+            ubLogo.Show();
+            Util.Wait(2000);
+            ubLogo.Hide();
+
             keepRunning = true; // game loop control
             battleField = new BattleField(); // the battle field
             cannon = new Cannon(); // the cannnon
 
-            PlaySound = true;
+            Program.PlaySound = true;
             battleField.Draw();
 
             battleField.ShowSplashScreen();
@@ -126,23 +130,7 @@ namespace ASCII_Invaders
             BestScore = Util.ReadBestScore();
         }
 
-        /// <summary>
-        /// Plays a sound
-        /// </summary>
-        /// <param name="file"></param>
-        public void PlayWavFile(Stream file)
-        {
-            if (!PlaySound)
-            {
-                return;
-            }
-            // Create new SoundPlayer in the using statement.
-            using (SoundPlayer player = new SoundPlayer(file))
-            {
-                // Use PlaySync to load and then play the sound.
-                player.Play();
-            }
-        }
+
 
         /// <summary>
         /// Go to the next level
@@ -152,7 +140,7 @@ namespace ASCII_Invaders
             if (Level == Constant.FinalLevel)
             {
                 // Last level reached - Congratulations
-                PlayWavFile(Resource1.congrats);
+                Util.PlayWavFile(Resource1.congrats);
                 battleField.Congratulations();
                 Level = 0;
             }
@@ -195,7 +183,7 @@ namespace ASCII_Invaders
                     bullet.Shot = true;
                     bullet.Position.X = cannon.Position.X + 1;
                     bullet.Position.Y = cannon.Position.Y - 1;
-                    PlayWavFile(Resource1.hit);
+                    Util.PlayWavFile(Resource1.hit);
                     return;
                 }
             }
@@ -222,7 +210,7 @@ namespace ASCII_Invaders
                         Shoot();
                         break;
                     case ConsoleKey.M:
-                        PlaySound = !PlaySound;
+                        Program.PlaySound = !Program.PlaySound;
                         break;
                     case ConsoleKey.P:
                         battleField.Pause();
@@ -285,7 +273,7 @@ namespace ASCII_Invaders
 
                     if (TheEnemyLanded(enemies[row, col]))
                     {
-                        PlayWavFile(Resource1.game_over);
+                        Util.PlayWavFile(Resource1.game_over);
                         battleField.GameOver(Score);
                         Level = 0;
                         Score = 0;
@@ -329,7 +317,7 @@ namespace ASCII_Invaders
                         ))
                     {
                         Score += Level * row;
-                        PlayWavFile(Resource1.explosion);
+                        Util.PlayWavFile(Resource1.explosion);
                         enemies[row, col].Destroy();
                         aliveEnemies--;
                         return true;
@@ -378,7 +366,7 @@ namespace ASCII_Invaders
                 UpdateEnemies();
             }
             UpdateBullets();
-            battleField.UpdateStatusBar(PlaySound, Level, Score, BestScore);
+            battleField.UpdateStatusBar(Program.PlaySound, Level, Score, BestScore);
         }
     }
 }

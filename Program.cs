@@ -7,6 +7,8 @@
     /// </summary>
     class Program
     {
+        public static bool PlaySound { get; set; }
+
         static void Main(string[] args)
         {
             Console.Clear();

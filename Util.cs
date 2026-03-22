@@ -79,5 +79,25 @@ using System.Threading;
             int padl = spc / 2 + text.Length;
             return text.PadLeft(padl).PadRight(length);
         }
+
+
+        /// <summary>
+        /// Plays a sound
+        /// </summary>
+        /// <param name="file"></param>
+        public static void PlayWavFile(Stream file)
+        {
+            if (!Program.PlaySound)
+            {
+                return;
+            }
+            // Create new SoundPlayer in the using statement.
+            using (SoundPlayer player = new SoundPlayer(file))
+            {
+                // Use PlaySync to load and then play the sound.
+                player.Play();
+            }
+        }
+
     }
 }

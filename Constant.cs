@@ -8,6 +8,7 @@ namespace ASCII_Invaders
     public static class Constant
     {
         public static readonly int ScreenTop = Console.CursorTop;
+        public static readonly int ScreenBottom = Console.WindowHeight - 1;
         public static readonly int ScreenLeft = Console.CursorLeft;
 
         public static readonly int BattleFieldLeft = 1;
