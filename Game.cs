@@ -110,6 +110,12 @@ namespace ASCII_Invaders
             Console.CursorVisible = false;
             Console.TreatControlCAsInput = true; // disable CTRL-C
             
+
+            keepRunning = true; // controle do game loop
+            battleField = new BattleField(); // o campo de batalha
+            cannon = new Cannon(); // o 'canhão' do jogador
+            Program.PlaySound = true;
+            battleField.Draw();
             // Mostra o logotipo do jogo por 2 segundos
             var ubLogo = new Logo();
             ubLogo.Show();
@@ -117,12 +123,6 @@ namespace ASCII_Invaders
 
             // Esconde o logotipo do jogo
             ubLogo.Hide();
-
-            keepRunning = true; // controle do game loop
-            battleField = new BattleField(); // o campo de batalha
-            cannon = new Cannon(); // o 'canhão' do jogador
-            Program.PlaySound = true;
-            battleField.Draw();
             battleField.ShowSplashScreen();
 
             enemiesGoLeft = true;
