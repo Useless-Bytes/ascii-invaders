@@ -17,7 +17,7 @@ namespace ASCII_Invaders
             Util.WriteAt(0, 2, "├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┤");
             for (int row = Constant.BattleFieldTop; row <= Constant.BattleFieldBottom; row++)
             {
-                Util.WriteAt(0, row, "│                                                  │");
+                    Util.WriteAt(0, row, "│                                                  │");
             }
             Util.WriteAt(0, Constant.BattleFieldBottom + 1, "├━━━━━━━━━┮━━━━━━━┮━━━━━━━━━━━━━┮━━━━━━━━━━━━━━━━━━┤");
             Util.WriteAt(0, Constant.BattleFieldStatusBar,  "│Sound:on │Level: │Score:       │Best Score:       │");
@@ -30,7 +30,7 @@ namespace ASCII_Invaders
         /// <param name="row">Número da linha</param>
         public void ClearLine(int row)
         {
-            Util.WriteAt(1, row, Util.Repeat(" ", 80));
+            Util.WriteAt(1, row, Util.Repeat(" ", Constant.BattleFieldWidth));
         }
 
         /// <summary>
@@ -38,21 +38,14 @@ namespace ASCII_Invaders
         /// </summary>
         public void Congratulations()
         {
-            for (var row = Constant.BattleFieldBottom - 8; row > Constant.BattleFieldTop; row--)
+            Util.PlayWavFile(Resource1.congrats);
+            var colorList = Util.GetConsoleColors();
+            var congratulations = new Congratulations();
+            foreach (var color in colorList)
             {
-                Util.WriteAt(7, row, "╔═══╗                     ╔╗     ", ConsoleColor.Red);
-                Util.WriteAt(7, row + 1, "║╔═╗║                    ╔╝╚╗    ", ConsoleColor.Red);
-                Util.WriteAt(7, row + 2, "║║ ╚╝╔══╗╔═╗ ╔══╗╔═╗╔══╗ ╚╗╔╝╔══╗", ConsoleColor.Red);
-                Util.WriteAt(7, row + 3, "║║ ╔╗║╔╗║║╔╗╗║╔╗║║╔╝╚ ╗║  ║║ ║══╣", ConsoleColor.Red);
-                Util.WriteAt(7, row + 4, "║╚═╝║║╚╝║║║║║║╚╝║║║ ║╚╝╚╗ ║╚╗╠══║", ConsoleColor.Red);
-                Util.WriteAt(7, row + 5, "╚═══╝╚══╝╚╝╚╝╚═╗║╚╝ ╚═══╝ ╚═╝╚══╝", ConsoleColor.Red);
-                Util.WriteAt(7, row + 6, "             ╔═╝║                ", ConsoleColor.Red);
-                Util.WriteAt(7, row + 7, "             ╚══╝                ", ConsoleColor.Red);
-                ClearLine(row + 8);
-                Util.Wait(Constant.OneSecond / 10);
+                congratulations.Show(color);
             }
-            Util.Wait(Constant.OneSecond * 3);
-            ClearBattleField();
+            congratulations.Hide();
         }
 
         /// <summary>
@@ -74,7 +67,7 @@ namespace ASCII_Invaders
                 Util.WriteAt(7, row + 9, "        ║║ ║╔╗╗║╚╝║╚ ╗║ ║╔╗║║╔╗║║╔╝║══╣", ConsoleColor.Red);
                 Util.WriteAt(7, row + 10, "       ╔╣╠╗║║║║╚╗╔╝║╚╝╚╗║╚╝║║║═╣║║ ╠══║", ConsoleColor.Red);
                 Util.WriteAt(7, row + 11, "       ╚══╝╚╝╚╝ ╚╝ ╚═══╝╚══╝╚══╝╚╝ ╚══╝", ConsoleColor.Red);
-                Util.WriteAt(7, row + 12, "               alovasconcelos.github.io", ConsoleColor.DarkBlue);
+                Util.WriteAt(7, row + 12, "             uselessbytesproject.com.br", ConsoleColor.DarkBlue);
                 ClearLine(row + 13);
                 Util.Wait(Constant.OneSecond / 10);
             }

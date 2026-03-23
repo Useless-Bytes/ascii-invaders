@@ -10,6 +10,7 @@ namespace ASCII_Invaders
         private bool keepRunning;
         public  int aliveEnemies;
         private  int _score;
+        
         public  int Score
         {
             get
@@ -108,7 +109,7 @@ namespace ASCII_Invaders
             Console.Clear();
             Console.CursorVisible = false;
             Console.TreatControlCAsInput = true; // disable CTRL-C
-
+            
             // Mostra o logotipo do jogo por 2 segundos
             var ubLogo = new Logo();
             ubLogo.Show();
@@ -120,10 +121,8 @@ namespace ASCII_Invaders
             keepRunning = true; // controle do game loop
             battleField = new BattleField(); // o campo de batalha
             cannon = new Cannon(); // o 'canhão' do jogador
-
             Program.PlaySound = true;
             battleField.Draw();
-
             battleField.ShowSplashScreen();
 
             enemiesGoLeft = true;
@@ -140,9 +139,14 @@ namespace ASCII_Invaders
         {
             if (Level == Constant.FinalLevel)
             {
-                // Último nível atingido, parabéns!
-                Util.PlayWavFile(Resource1.congrats);
-                battleField.Congratulations();
+                // Último nível atingido
+                if (Score > BestScore)
+                {
+                    battleField.Congratulations();
+                }else
+                {
+                    battleField.GameOver(Score);
+                }
                 Level = 0;
             }
 

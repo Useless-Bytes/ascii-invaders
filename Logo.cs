@@ -48,7 +48,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>Show</c> exibe o logo na tela com uma animação de descida. Ele percorre cada linha do logo e, para cada linha, move o texto da linha para baixo, criando um efeito visual de descida. O método utiliza a função Util.WriteAt para escrever o texto na posição correta da tela, e a função Util.Wait para criar um atraso entre cada movimento, tornando a animação mais suave. O parâmetro color permite definir a cor do texto do logo, com um valor padrão de branco.
+        /// Método <c>Show</c> exibe o logo na tela com uma animação. Ele percorre cada linha do logo e, para cada linha, move o texto da linha para baixo, criando um efeito visual de descida. O método utiliza a função Util.WriteAt para escrever o texto na posição correta da tela, e a função Util.Wait para criar um atraso entre cada movimento, tornando a animação mais suave. O parâmetro color permite definir a cor do texto do logo, com um valor padrão de branco.
         /// </summary>
         public void Show(ConsoleColor color = ConsoleColor.White)
         {
@@ -62,11 +62,11 @@ namespace ASCII_Invaders
                 for (var row = bottomLimit; row > topLimit; row--)
                 {
                     // Aguarda um curto período de tempo para criar a animação suave
-                    Util.Wait(1);
                     // Limpa a linha anterior para evitar sobreposição de texto
                     if (row > topLimit && row < bottomLimit)
                     {
                         // Escreve uma linha em branco para limpar a linha anterior
+                        Util.Wait(1);
                         Util.WriteAt(0, row + 1, string.Concat(Enumerable.Repeat(" ", 80)));
                     }
                     // Escreve o texto da linha atual na posição correta da tela

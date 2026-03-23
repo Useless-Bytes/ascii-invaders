@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -77,20 +78,19 @@ using System.Threading;
         {
             Thread.Sleep(milliseconds);
         }
-
+        
         /// <summary>
-        /// Método <c>PadCenter</c> centraliza um texto em uma largura fixa de 50 caracteres, adicionando espaços à esquerda e à direita conforme necessário.
+        /// Método <c>PadCenter</c> retorna string com texto ajustado no centro
         /// </summary>
         /// <param name="text">Texto a ser ajustado</param>
+        /// <param name="length">Comprimento do texto - 50 se não for passado outro valor</param>
         /// <returns>Texto ajustado ao centro</returns>
-        public static string PadCenter(string text)
+        public static string PadCenter(string text, int length = 50)
         {
-            int length = 50;
             int spc = length - text.Length;
             int padl = spc / 2 + text.Length;
             return text.PadLeft(padl).PadRight(length);
         }
-
 
         /// <summary>
         /// Método <c>PlayWavFile</c> reproduz um arquivo de som WAV usando a classe SoundPlayer. O método verifica se a reprodução de som está habilitada antes de tentar tocar o arquivo.
@@ -109,6 +109,19 @@ using System.Threading;
                 player.Play();
             }
         }
+
+        /// <summary>
+        /// Método <c>GetConsoleColors</c> retorna lista das cores disponíveis no console
+        /// </summary>
+        /// <returns></returns>
+        public static List<ConsoleColor> GetConsoleColors()
+        {
+            return Enum.GetValues(typeof(ConsoleColor))
+                       .Cast<ConsoleColor>()
+                       .ToList();
+        }
+
+
 
     }
 }
