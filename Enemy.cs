@@ -3,12 +3,12 @@
 namespace ASCII_Invaders
 {
     /// <summary>
-    /// Class <c>Enemy</c> is the class for enemy game objects
+    /// Classe <c>Enemy</c> representa um inimigo no jogo. Ela herda de GameObject e possui um método para destruir o inimigo, que exibe uma animação de destruição antes de limpar o inimigo da tela e torná-lo invisível.
     /// </summary>
     class Enemy : GameObject
     {
         /// <summary>
-        /// Method <c>constructor</c>
+        /// Construtor da classe <c>Enemy</c> inicializa o sprite do inimigo como um emoji de alienígena, define a cor como verde e deixa as posições padrão para serem definidas posteriormente.
         /// </summary>
         public Enemy() 
         {
@@ -17,7 +17,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Method <c>Destroy</c>draws a little animation and clears the enemy from screen
+        /// Método <c>Destroy</c> exibe uma animação de destruição do inimigo, alternando as cores do sprite para criar um efeito visual. Após a animação, o método limpa o sprite da tela e torna o inimigo invisível.
         /// </summary>
         public void Destroy()
         {

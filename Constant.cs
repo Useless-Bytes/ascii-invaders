@@ -3,13 +3,14 @@
 namespace ASCII_Invaders
 {
     /// <summary>
-    /// Class <c>Constant</c> contains the constants
+    /// Classe <c>Constant</c> contém as constantes usadas no jogo, como as dimensões do campo de batalha, o número de inimigos, os sons e o arquivo de pontuação.
     /// </summary>
     public static class Constant
     {
         public static readonly int ScreenTop = Console.CursorTop;
         public static readonly int ScreenBottom = Console.WindowHeight - 1;
         public static readonly int ScreenLeft = Console.CursorLeft;
+        public static readonly int ScreenRight = Console.WindowWidth - 1;
 
         public static readonly int BattleFieldLeft = 1;
         public static readonly int BattleFieldTop = 3;
