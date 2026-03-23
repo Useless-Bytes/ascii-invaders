@@ -9,7 +9,11 @@ namespace ASCII_Invaders
     {
         private bool keepRunning;
         public  int aliveEnemies;
+        private int enemiesShooting;
+        private int maxEnemiesShooting;
         private  int _score;
+
+
         
         public  int Score
         {
@@ -124,7 +128,6 @@ namespace ASCII_Invaders
             // Esconde o logotipo do jogo
             ubLogo.Hide();
             battleField.ShowSplashScreen();
-
             enemiesGoLeft = true;
             enemiesGoDown = false;
             Score = 0;
@@ -145,6 +148,7 @@ namespace ASCII_Invaders
                     battleField.Congratulations();
                 }else
                 {
+                    Util.PlayWavFile(Resource1.game_over);
                     battleField.GameOver(Score);
                 }
                 Level = 0;
@@ -167,6 +171,8 @@ namespace ASCII_Invaders
 
             // Exibe a tela de transição para o próximo nível
             battleField.ShowLevelSplashScreen(Level);
+            enemiesShooting = 0;
+            maxEnemiesShooting = 2 * Level;
         }
 
         /// <summary>
@@ -192,7 +198,7 @@ namespace ASCII_Invaders
                 {
                     // Encontra um projétil disponível, marca-o como disparado e posiciona-o na frente do canhão
                     bullet.Shot = true;
-                    bullet.Position.X = cannon.Position.X + 1;
+                    bullet.Position.X = cannon.Position.X;
                     bullet.Position.Y = cannon.Position.Y - 1;
 
                     // Reproduz um som de tiro
@@ -282,7 +288,10 @@ namespace ASCII_Invaders
         {
             var goLeft = enemiesGoLeft;
             var goDown = false;
+
             enemiesSpeed = Constant.EnemiesTimer;
+
+            var randomEnemyPosition = Util.GetRandomEnemyPosition();
 
             // Atualiza a posição dos inimigos no campo de batalha
             for (var row = 0; row < Constant.EnemiesRows; row++)
@@ -290,21 +299,34 @@ namespace ASCII_Invaders
                 // Move cada inimigo para baixo, para a esquerda ou para a direita, dependendo da direção atual dos inimigos
                 for (var col = 0; col < Constant.EnemiesPerRow; col++)
                 {
+                    var enemy = enemies[row, col];
+
+                    if (enemiesShooting < maxEnemiesShooting &&
+                        enemy.Visible && 
+                        !enemy.IsShooting && 
+                        randomEnemyPosition.X == col && 
+                        randomEnemyPosition.Y == row)
+                    {
+                        // Disparar
+                        enemy.Shoot();
+                        enemiesShooting++;
+                    }
+
                     // Verifica se o inimigo está visível antes de movê-lo
                     if (enemiesGoDown)
                     {
                         // Move o inimigo para baixo
-                        enemies[row, col].MoveDown();
+                        enemy.MoveDown();
                     }
                     if (enemiesGoLeft)
                     {
                         // Move o inimigo para a esquerda
-                        enemies[row, col].MoveLeft();
+                        enemy.MoveLeft();
                     }
                     else
                     {
                         // Move o inimigo para a direita
-                        enemies[row, col].MoveRight();
+                        enemy.MoveRight();
                     }
 
                     if (TheEnemyLanded(enemies[row, col]))
@@ -316,16 +338,16 @@ namespace ASCII_Invaders
                         Score = 0;
                         return;
                     }
-                    if (enemies[row, col].Visible)
+                    if (enemy.Visible)
                     {
                         // Verifica se algum inimigo atingiu as bordas do campo de batalha para determinar se os inimigos devem mudar de direção e descer
-                        if (enemies[row, col].Position.X == Constant.BattleFieldLeft)
+                        if (enemy.Position.X == Constant.BattleFieldLeft)
                         {
                             // Se um inimigo atingiu a borda esquerda, os inimigos devem mudar de direção para a direita e descer
                             goLeft = false;
                             goDown = true;
                         }
-                        if (enemies[row, col].Position.X == Constant.BattleFieldWidth - 2)
+                        if (enemy.Position.X == Constant.BattleFieldWidth - 2)
                         {
                             // Se um inimigo atingiu a borda direita, os inimigos devem mudar de direção para a esquerda e descer
                             goLeft = true;
@@ -337,6 +359,7 @@ namespace ASCII_Invaders
             // Atualiza a direção dos inimigos com base nas verificações realizadas
             enemiesGoLeft = goLeft;
             enemiesGoDown = goDown;
+            
         }
 
         /// <summary>

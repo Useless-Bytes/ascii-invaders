@@ -16,7 +16,7 @@ namespace ASCII_Invaders
         {
             for (var line = 0; line < Image.Count; line++)
             {
-                Util.WriteAt(8, 3 + line, Image.ElementAt(line), color);
+                Util.WriteAt(Constant.BattleFieldLeft, Constant.BattleFieldTop + line, Image.ElementAt(line), color);
                 Util.Wait(1);
             }
         }
@@ -28,7 +28,7 @@ namespace ASCII_Invaders
         {
             for (var line = 0; line < Image.Count; line++)
             {
-                Util.WriteAt(Constant.BattleFieldLeft, 3 + line, Util.Repeat(" ", Constant.BattleFieldWidth));
+                Util.WriteAt(Constant.BattleFieldLeft, Constant.BattleFieldTop + line, Util.Repeat(" ", Constant.BattleFieldWidth));
                 Util.Wait(1);
             }
         }

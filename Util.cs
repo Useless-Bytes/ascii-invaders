@@ -13,6 +13,7 @@ using System.Threading;
     public static class Util
     {
         public static string exePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        private static readonly Random _random = new Random();
 
         /// <summary>
         /// Método <c>WriteAt</c> escreve um conteúdo em uma posição específica da tela, com uma cor opcional.
@@ -121,7 +122,11 @@ using System.Threading;
                        .ToList();
         }
 
-
-
+        public static Position GetRandomEnemyPosition()
+        {
+            var x = _random.Next(0, Constant.EnemiesPerRow + 1);
+            var y = _random.Next(0, Constant.EnemiesRows + 1);
+            return new Position(x, y);
+        }
     }
 }

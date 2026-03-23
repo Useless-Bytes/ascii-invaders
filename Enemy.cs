@@ -7,13 +7,15 @@ namespace ASCII_Invaders
     /// </summary>
     class Enemy : GameObject
     {
+        public bool IsShooting { get; set; }
+
         /// <summary>
         /// Construtor da classe <c>Enemy</c> inicializa o sprite do inimigo como um emoji de alienígena, define a cor como verde e deixa as posições padrão para serem definidas posteriormente.
         /// </summary>
         public Enemy() 
         {
             Sprite = "👾";
-            Color = ConsoleColor.Green;
+            IsShooting = false;
         }
 
         /// <summary>
@@ -21,20 +23,29 @@ namespace ASCII_Invaders
         /// </summary>
         public void Destroy()
         {
-            Color = ConsoleColor.DarkGray;
+            Sprite = "#";
             Draw();
-            Util.Wait(10);
-            Color = ConsoleColor.DarkYellow;
+            Util.Wait(50);
+            Sprite = "*";
             Draw();
-            Util.Wait(10);
-            Color = ConsoleColor.Yellow;
+            Util.Wait(50);
+            Sprite = ".";
             Draw();
-            Util.Wait(10);
-            Color = ConsoleColor.Red;
+            Util.Wait(50);
+            Sprite = "#";
             Draw();
             Util.Wait(10);
             Clear();
             Visible = false;
+        }
+
+        /// <summary>
+        /// Método <c>Shoot</c> dispara projéteis
+        /// </summary>
+        public void Shoot()
+        {
+            IsShooting = true;
+
         }
     }
 }

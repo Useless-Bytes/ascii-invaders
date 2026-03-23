@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\Vasconcelos\\ascii-invaders\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\logo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:logo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\congratulations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:congratulations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\cannon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:cannon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\battlefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:battlefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,8 +27,20 @@
       "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\congratulations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:congratulations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\logo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:logo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|d:\\vasconcelos\\ascii-invaders\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,103 +66,132 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ImageASCII.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\ImageASCII.cs",
-              "RelativeDocumentMoniker": "ImageASCII.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\ImageASCII.cs",
-              "RelativeToolTip": "ImageASCII.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T18:09:31.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Congratulations.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Congratulations.cs",
-              "RelativeDocumentMoniker": "Congratulations.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Congratulations.cs",
-              "RelativeToolTip": "Congratulations.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAABMAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T17:52:28.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": ".gitignore",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAGkAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-03-23T17:31:14.507Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Constant.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Constant.cs",
-              "RelativeDocumentMoniker": "Constant.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Constant.cs",
-              "RelativeToolTip": "Constant.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T17:17:40.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Util.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Util.cs",
-              "RelativeDocumentMoniker": "Util.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Util.cs",
-              "RelativeToolTip": "Util.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAiwFAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T17:04:25.703Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Logo.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Logo.cs",
-              "RelativeDocumentMoniker": "Logo.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Logo.cs",
-              "RelativeToolTip": "Logo.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAqwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:54:28.128Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Game.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Game.cs",
-              "RelativeDocumentMoniker": "Game.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Game.cs",
-              "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAqwH0AAAAAAAAAAAAAAA==",
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Bullet.cs",
+              "RelativeDocumentMoniker": "Bullet.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Bullet.cs",
+              "RelativeToolTip": "Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:44:29.611Z",
+              "WhenOpened": "2026-03-23T20:39:23.592Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BattleField.cs",
-              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\BattleField.cs",
-              "RelativeDocumentMoniker": "BattleField.cs",
-              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\BattleField.cs",
-              "RelativeToolTip": "BattleField.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAswBYAAAA+AAAAAAAAAA==",
+              "Title": "Constant.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Constant.cs",
+              "RelativeDocumentMoniker": "Constant.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Constant.cs",
+              "RelativeToolTip": "Constant.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwB0AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T14:35:19.571Z",
+              "WhenOpened": "2026-03-23T20:01:23.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Congratulations.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Congratulations.cs",
+              "RelativeDocumentMoniker": "Congratulations.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Congratulations.cs",
+              "RelativeToolTip": "Congratulations.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwB8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:54:32.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Logo.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Logo.cs",
+              "RelativeDocumentMoniker": "Logo.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Logo.cs",
+              "RelativeToolTip": "Logo.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:53:45.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ImageASCII.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\ImageASCII.cs",
+              "RelativeDocumentMoniker": "ImageASCII.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\ImageASCII.cs",
+              "RelativeToolTip": "ImageASCII.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:52:19.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Util.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Util.cs",
+              "RelativeDocumentMoniker": "Util.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Util.cs",
+              "RelativeToolTip": "Util.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowHwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:41:35.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Position.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Position.cs",
+              "RelativeDocumentMoniker": "Position.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Position.cs",
+              "RelativeToolTip": "Position.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:38:04.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cannon.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Cannon.cs",
+              "RelativeDocumentMoniker": "Cannon.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Cannon.cs",
+              "RelativeToolTip": "Cannon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:23:27.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Enemy.cs",
+              "RelativeDocumentMoniker": "Enemy.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Enemy.cs",
+              "RelativeToolTip": "Enemy.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:21:46.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.cs",
+              "DocumentMoniker": "D:\\Vasconcelos\\ascii-invaders\\Game.cs",
+              "RelativeDocumentMoniker": "Game.cs",
+              "ToolTip": "D:\\Vasconcelos\\ascii-invaders\\Game.cs",
+              "RelativeToolTip": "Game.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAswMgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T19:19:37.455Z",
               "EditorCaption": ""
             }
           ]
