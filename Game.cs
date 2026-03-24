@@ -52,8 +52,9 @@ namespace ASCII_Invaders
         private  Cannon cannon;
         private  ConsoleKey keyPressed;
 
-        private  Bullet[] bullets = new Bullet[Constant.Bullets];
-        private  Enemy[,] enemies = new Enemy[Constant.EnemiesRows, Constant.EnemiesPerRow];
+        private Bullet[] playerBullets = new Bullet[Constant.Bullets];
+        private Bullet[] enemiesBullets = new Bullet[Constant.Bullets];
+        private Enemy[,] enemies = new Enemy[Constant.EnemiesRows, Constant.EnemiesPerRow];
 
         private  float enemiesSpeed = 10f;
         private  Random random = new Random();
@@ -160,7 +161,8 @@ namespace ASCII_Invaders
             // Carrega os projéteis
             for (var b = 0; b < Constant.Bullets; b++)
             {
-                bullets[b] = new Bullet();
+                playerBullets[b] = new Bullet();
+                enemiesBullets[b] = new Bullet(true);
             }
 
             // Carrega os inimigos
@@ -186,12 +188,12 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>Shoot</c> é responsável por disparar um projétil do canhão do jogador. Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o na frente do canhão e reproduz um som de tiro. O método retorna após disparar o primeiro projétil disponível, garantindo que apenas um projétil seja disparado por vez.
+        /// Método <c>PlayerShoot</c> é responsável por disparar um projétil do canhão do jogador. Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o na frente do canhão e reproduz um som de tiro. O método retorna após disparar o primeiro projétil disponível, garantindo que apenas um projétil seja disparado por vez.
         /// </summary>
-        private void Shoot()
+        private void PlayerShoot()
         {
             // Percorre a lista de projéteis disponíveis
-            foreach (var bullet in bullets)
+            foreach (var bullet in playerBullets)
             {
                 // Verifica se o projétil ainda não foi disparado
                 if (!bullet.Shot)
@@ -200,6 +202,32 @@ namespace ASCII_Invaders
                     bullet.Shot = true;
                     bullet.Position.X = cannon.Position.X;
                     bullet.Position.Y = cannon.Position.Y - 1;
+
+                    // Reproduz um som de tiro
+                    Util.PlayWavFile(Resource1.hit);
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método <c>EnemyShoot</c> é responsável por disparar um projétil do inimigo. 
+        /// Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. 
+        /// Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o abaixo do inimigo selecionado e reproduz um som de tiro. 
+        /// O método retorna após disparar o primeiro projétil disponível, garantindo que apenas um projétil seja disparado por vez.
+        /// </summary>
+        private void EnemyShoot(Enemy enemy)
+        {
+            // Percorre a lista de projéteis disponíveis
+            foreach (var bullet in enemiesBullets)
+            {
+                // Verifica se o projétil ainda não foi disparado
+                if (!bullet.Shot)
+                {
+                    // Encontra um projétil disponível, marca-o como disparado e posiciona-o abaixo do inimigo
+                    bullet.Shot = true;
+                    bullet.Position.X = enemy.Position.X;
+                    bullet.Position.Y = enemy.Position.Y + 1;
 
                     // Reproduz um som de tiro
                     Util.PlayWavFile(Resource1.hit);
@@ -232,7 +260,7 @@ namespace ASCII_Invaders
                         break;
                     case ConsoleKey.Spacebar:
                         // Dispara um projétil
-                        Shoot();
+                        PlayerShoot();
                         break;
                     case ConsoleKey.M:
                         // Alterna o som
@@ -309,6 +337,7 @@ namespace ASCII_Invaders
                     {
                         // Disparar
                         enemy.Shoot();
+                        EnemyShoot(enemy);
                         enemiesShooting++;
                     }
 
@@ -396,39 +425,92 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>UpdateBullets</c> é responsável por atualizar a posição dos projéteis disparados pelo jogador e verificar se eles atingiram algum inimigo ou se saíram do campo de batalha. Ele percorre a lista de projéteis e, para cada projétil que foi disparado, desenha o projétil na tela, verifica se ele atingiu algum inimigo usando o método CheckEnemyHit, e se atingiu, marca o projétil como não disparado. Em seguida, faz uma pausa para controlar a velocidade do movimento do projétil, limpa a posição anterior do projétil e move o projétil para cima. Se o projétil atingir o topo do campo de batalha, ele é marcado como não disparado para ser reutilizado em futuros disparos.
+        /// Método <c>CheckPlayerHit</c> é responsável por verificar se um projétil disparado pelo inimigo atingiu o jogador no campo de batalha.
         /// </summary>
-        void UpdateBullets()
+        /// <param name="bullet">Projétil</param>
+        /// <returns>Verdadeiro se algum inimigo foi atingido</returns>
+        bool CheckPlayerHit(Bullet bullet)
+        {
+            // Compara a posição do projétil com a posição do canhão
+            if (bullet.Position.X == cannon.Position.X && bullet.Position.Y ==  cannon.Position.Y)
+            {                
+                Util.PlayWavFile(Resource1.explosion);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método <c>UpdatePlayerBullets</c> é responsável por atualizar a posição dos projéteis disparados pelo jogador e verificar se eles atingiram algum inimigo ou se saíram do campo de batalha. Ele percorre a lista de projéteis e, para cada projétil que foi disparado, desenha o projétil na tela, verifica se ele atingiu algum inimigo usando o método CheckEnemyHit, e se atingiu, marca o projétil como não disparado. Em seguida, faz uma pausa para controlar a velocidade do movimento do projétil, limpa a posição anterior do projétil e move o projétil para cima. Se o projétil atingir o topo do campo de batalha, ele é marcado como não disparado para ser reutilizado em futuros disparos.
+        /// </summary>
+        void UpdatePlayerBullets()
         {
             // Atualiza a posição dos projéteis disparados pelo jogador e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
             for (var b = 0; b < Constant.Bullets; b++)
             {
                 // Verifica se o projétil foi disparado
-                if (bullets[b].Shot)
+                if (playerBullets[b].Shot)
                 {
                     // Desenha o projétil na tela
-                    bullets[b].Draw();
-                    if (CheckEnemyHit(bullets[b]))
+                    playerBullets[b].Draw();
+                    if (CheckEnemyHit(playerBullets[b]))
                     {
                         // Se o projétil atingiu um inimigo, marca o projétil como não disparado para ser reutilizado em futuros disparos
-                        bullets[b].Shot = false;
+                        playerBullets[b].Shot = false;
                     }
                     // Faz uma pausa para controlar a velocidade do movimento do projétil
                     Util.Wait(17);
 
                     // Limpa a posição anterior do projétil
-                    bullets[b].Clear();
+                    playerBullets[b].Clear();
 
                     // Move o projétil para cima e verifica se atingiu o topo do campo de batalha
-                    if (bullets[b].Position.Y-- == Constant.BattleFieldTop)
+                    if (playerBullets[b].Position.Y-- == Constant.BattleFieldTop)
                     {
                         // Se o projétil atingiu o topo do campo de batalha, marca o projétil como não disparado para ser reutilizado em futuros disparos
-                        bullets[b].Shot = false;
+                        playerBullets[b].Shot = false;
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Método <c>UpdateEnemiesBullets</c> é responsável por atualizar a posição dos projéteis disparados pelos inimigos e verificar se eles atingiram o jogador ou se saíram do campo de batalha. 
+        /// Ele percorre a lista de projéteis e, para cada projétil que foi disparado, desenha o projétil na tela, verifica se ele atingiu o jogador usando o método CheckPlayerHit, 
+        /// e se atingiu, marca o projétil como não disparado. 
+        /// Em seguida, faz uma pausa para controlar a velocidade do movimento do projétil, limpa a posição anterior do projétil e move o projétil para baixo. 
+        /// Se o projétil atingir a base do campo de batalha, ele é marcado como não disparado para ser reutilizado em futuros disparos.
+        /// </summary>
+        void UpdateEnemiesBullets()
+        {
+            // Atualiza a posição dos projéteis disparados pelos inimigos e verifica se eles atingiram o jogador ou se saíram do campo de batalha
+            for (var b = 0; b < Constant.Bullets; b++)
+            {
+                // Verifica se o projétil foi disparado
+                if (enemiesBullets[b].Shot)
+                {
+                    // Desenha o projétil na tela
+                    enemiesBullets[b].Draw();
+                    if (CheckPlayerHit(enemiesBullets[b]))
+                    {
+                        // Se o projétil atingiu um inimigo, marca o projétil como não disparado para ser reutilizado em futuros disparos
+                        enemiesBullets[b].Shot = false;
+                    }
+                    // Faz uma pausa para controlar a velocidade do movimento do projétil
+                    Util.Wait(17);
+
+                    // Limpa a posição anterior do projétil
+                    playerBullets[b].Clear();
+
+                    // Move o projétil para cima e verifica se atingiu a base do campo de batalha
+                    if (playerBullets[b].Position.Y++ == Constant.BattleFieldBottom)
+                    {
+                        // Se o projétil atingiu a base do campo de batalha, marca o projétil como não disparado para ser reutilizado em futuros disparos
+                        playerBullets[b].Shot = false;
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Método <c>Update</c> é responsável por atualizar o estado do jogo a cada ciclo do loop principal. Ele desenha o canhão do jogador, verifica se todos os inimigos foram derrotados para avançar para o próximo nível, randomiza a velocidade dos inimigos e atualiza a posição dos inimigos e projéteis. Além disso, ele atualiza a barra de status do campo de batalha com as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação.
         /// </summary>
@@ -452,7 +534,10 @@ namespace ASCII_Invaders
             }
 
             // Atualiza a posição dos projéteis disparados pelo jogador e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
-            UpdateBullets();
+            UpdatePlayerBullets();
+
+            // Atualiza a posição dos projéteis disparados pelos inimigos e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
+            UpdateEnemiesBullets();
 
             // Atualiza a barra de status do campo de batalha com as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação
             battleField.UpdateStatusBar(Program.PlaySound, Level, Score, BestScore);

@@ -29,6 +29,9 @@ namespace ASCII_Invaders
         public static readonly int Bullets = 2;
         public static readonly int EnemiesTimer = 10;        
 
+        public static readonly int DirectionUp = 0;
+        public static readonly int DirectionDown = 1;
+
         public static readonly string ShotSound = "hitHurt.wav";
         public static readonly string ExplosionSound = "explosion.wav";
         public static readonly string ScoreFile = "score.dat";
