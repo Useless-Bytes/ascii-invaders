@@ -13,7 +13,7 @@ namespace ASCII_Invaders
         public void Draw()
         {
             Util.WriteAt(0, 0, "┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑");
-            Util.WriteAt(0, 1, "│                  ASCII INVADERS                  │");
+            Util.WriteAt(0, 1, "│  ╩ ╩ ╩           ASCII INVADERS                  │");
             Util.WriteAt(0, 2, "├━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┤");
             for (int row = Constant.BattleFieldTop; row <= Constant.BattleFieldBottom; row++)
             {
@@ -258,21 +258,6 @@ namespace ASCII_Invaders
 
             // Limpa a linha da mensagem de pausa
             ClearLine(10);
-        }
-
-        /// <summary>
-        /// Mostra a barra de status do jogo, atualizando as informações de som, nível, pontuação e melhor pontuação. O status do som é mostrado como "On" ou "Off", o nível é mostrado como um número inteiro, a pontuação e a melhor pontuação são mostrados como números inteiros com 6 dígitos, preenchidos com zeros à esquerda se necessário.
-        /// </summary>
-        /// <param name="soundOn">Som ligado</param>
-        /// <param name="level">Nível</param>
-        /// <param name="score">Placar</param>
-        /// <param name="bestScore">Melhor placar</param>
-        public void UpdateStatusBar(bool soundOn, int level, int score, int bestScore)
-        {
-            Util.WriteAt(Constant.BattleFieldSoundStatusCol, Constant.BattleFieldStatusBar, soundOn ? "On " : "Off");
-            Util.WriteAt(Constant.BattleFieldLevelCol, Constant.BattleFieldStatusBar, level.ToString());
-            Util.WriteAt(Constant.BattleFieldScoreCol, Constant.BattleFieldStatusBar, score.ToString().PadLeft(6, '0'));
-            Util.WriteAt(Constant.BattleFieldBestScoreCol, Constant.BattleFieldStatusBar, bestScore.ToString().PadLeft(6, '0'));
         }
     }
 }

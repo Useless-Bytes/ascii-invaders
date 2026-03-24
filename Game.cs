@@ -50,10 +50,11 @@ namespace ASCII_Invaders
         private  bool enemiesGoDown;
         private  BattleField battleField;
         private  Cannon cannon;
+        private int cannonsLeft;
         private  ConsoleKey keyPressed;
 
-        private Bullet[] playerBullets = new Bullet[Constant.Bullets];
-        private Bullet[] enemiesBullets = new Bullet[Constant.Bullets];
+        private Bullet[] playerBullets = new Bullet[Constant.PlayerBullets];
+        private Bullet[] enemiesBullets = new Bullet[Constant.EnemiesBullets];
         private Enemy[,] enemies = new Enemy[Constant.EnemiesRows, Constant.EnemiesPerRow];
 
         private  float enemiesSpeed = 10f;
@@ -71,6 +72,7 @@ namespace ASCII_Invaders
             {
                 if (Level == 0)
                 {
+                    cannonsLeft = Constant.Cannons;
                     NextLevel();
                 }
 
@@ -137,6 +139,25 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
+        /// Método <c>GameOver</c> mostra tela de fim de jogo
+        /// </summary>
+        private void GameOver()
+        {
+            Util.PlayWavFile(Resource1.game_over);
+            battleField.GameOver(Score);
+            Level = 0;
+        }
+
+        /// <summary>
+        /// Método <c>Congratilations</c> mostra a tela de congratulações
+        /// </summary>
+        private void Congratulations()
+        {
+            battleField.Congratulations();
+            Level = 0;
+        }
+
+        /// <summary>
         /// Método <c>NextLevel</c> é responsável por avançar para o próximo nível do jogo. Ele verifica se o nível atual é o último nível definido, e se for, exibe uma mensagem de parabéns e reinicia o jogo. Caso contrário, ele incrementa o número do nível, recarrega os projéteis e os inimigos, atualiza a contagem de inimigos vivos e exibe uma tela de transição para o próximo nível.
         /// </summary>
         private void NextLevel()
@@ -146,22 +167,24 @@ namespace ASCII_Invaders
                 // Último nível atingido
                 if (Score > BestScore)
                 {
-                    battleField.Congratulations();
+                    Congratulations();
                 }else
                 {
-                    Util.PlayWavFile(Resource1.game_over);
-                    battleField.GameOver(Score);
+                    GameOver();
                 }
-                Level = 0;
             }
 
             // Incrementa o número do nível
             Level++;
 
-            // Carrega os projéteis
-            for (var b = 0; b < Constant.Bullets; b++)
+            // Carrega os projéteis do jogador
+            for (var b = 0; b < Constant.PlayerBullets; b++)
             {
                 playerBullets[b] = new Bullet();
+            }
+
+            for (var b = 0; b < Constant.EnemiesBullets; b++)
+            {
                 enemiesBullets[b] = new Bullet(true);
             }
 
@@ -174,7 +197,7 @@ namespace ASCII_Invaders
             // Exibe a tela de transição para o próximo nível
             battleField.ShowLevelSplashScreen(Level);
             enemiesShooting = 0;
-            maxEnemiesShooting = 2 * Level;
+            maxEnemiesShooting = 20;
         }
 
         /// <summary>
@@ -214,7 +237,7 @@ namespace ASCII_Invaders
         /// Método <c>EnemyShoot</c> é responsável por disparar um projétil do inimigo. 
         /// Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. 
         /// Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o abaixo do inimigo selecionado e reproduz um som de tiro. 
-        /// O método retorna após disparar o primeiro projétil disponível, garantindo que apenas um projétil seja disparado por vez.
+        /// O método retorna após disparar a quantidade máxima de tiros de inimigos.
         /// </summary>
         private void EnemyShoot(Enemy enemy)
         {
@@ -231,7 +254,6 @@ namespace ASCII_Invaders
 
                     // Reproduz um som de tiro
                     Util.PlayWavFile(Resource1.hit);
-                    return;
                 }
             }
         }
@@ -302,7 +324,8 @@ namespace ASCII_Invaders
         private bool TheEnemyLanded(Enemy enemy)
         {
             // Verifica se o inimigo atingiu o chão do campo de batalha
-            if (enemy.Position.Y == Constant.BattleFieldBottom)
+            if (enemy.Position.Y == Constant.BattleFieldBottom || 
+                (enemy.Position.Y == cannon.Position.Y && enemy.Position.X == cannon.Position.X))
             {
                 return true;
             }
@@ -358,12 +381,11 @@ namespace ASCII_Invaders
                         enemy.MoveRight();
                     }
 
-                    if (TheEnemyLanded(enemies[row, col]))
+                    if (TheEnemyLanded(enemies[row, col]) || cannonsLeft < 0)
                     {
-                        // Se um inimigo atingiu o chão do campo de batalha, o jogo termina
-                        Util.PlayWavFile(Resource1.game_over);
-                        battleField.GameOver(Score);
-                        Level = 0;
+                        // Se um inimigo atingiu o chão do campo de batalha, ou todos os canhões
+                        // foram destruídos, o jogo termina
+                        GameOver();
                         Score = 0;
                         return;
                     }
@@ -435,6 +457,7 @@ namespace ASCII_Invaders
             if (bullet.Position.X == cannon.Position.X && bullet.Position.Y ==  cannon.Position.Y)
             {                
                 Util.PlayWavFile(Resource1.explosion);
+                cannonsLeft--;
                 return true;
             }
             return false;
@@ -446,7 +469,7 @@ namespace ASCII_Invaders
         void UpdatePlayerBullets()
         {
             // Atualiza a posição dos projéteis disparados pelo jogador e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
-            for (var b = 0; b < Constant.Bullets; b++)
+            for (var b = 0; b < Constant.PlayerBullets; b++)
             {
                 // Verifica se o projétil foi disparado
                 if (playerBullets[b].Shot)
@@ -484,7 +507,7 @@ namespace ASCII_Invaders
         void UpdateEnemiesBullets()
         {
             // Atualiza a posição dos projéteis disparados pelos inimigos e verifica se eles atingiram o jogador ou se saíram do campo de batalha
-            for (var b = 0; b < Constant.Bullets; b++)
+            for (var b = 0; b < Constant.PlayerBullets; b++)
             {
                 // Verifica se o projétil foi disparado
                 if (enemiesBullets[b].Shot)
@@ -493,7 +516,7 @@ namespace ASCII_Invaders
                     enemiesBullets[b].Draw();
                     if (CheckPlayerHit(enemiesBullets[b]))
                     {
-                        // Se o projétil atingiu um inimigo, marca o projétil como não disparado para ser reutilizado em futuros disparos
+                        // Se o projétil atingiu o jogador, marca o projétil como não disparado para ser reutilizado em futuros disparos
                         enemiesBullets[b].Shot = false;
                         enemiesShooting--;
                     }
@@ -542,8 +565,27 @@ namespace ASCII_Invaders
             // Atualiza a posição dos projéteis disparados pelos inimigos e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
             UpdateEnemiesBullets();
 
-            // Atualiza a barra de status do campo de batalha com as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação
-            battleField.UpdateStatusBar(Program.PlaySound, Level, Score, BestScore);
+            // Atualiza as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação
+            UpdateGameInfo();
+
         }
+
+        /// <summary>
+        /// Mostra a barra de status do jogo, atualizando as informações de som, nível, pontuação e melhor pontuação. O status do som é mostrado como "On" ou "Off", o nível é mostrado como um número inteiro, a pontuação e a melhor pontuação são mostrados como números inteiros com 6 dígitos, preenchidos com zeros à esquerda se necessário.
+        /// </summary>
+        public void UpdateGameInfo()
+        {
+            var cannons = "";
+            if (cannonsLeft > 0)
+            {
+                cannons = Util.Repeat(cannon.Sprite + " ", cannonsLeft);
+            }
+            Util.WriteAt(3, 1, cannons.PadRight(5));
+            Util.WriteAt(Constant.BattleFieldSoundStatusCol, Constant.BattleFieldStatusBar, Program.PlaySound ? "On " : "Off");
+            Util.WriteAt(Constant.BattleFieldLevelCol, Constant.BattleFieldStatusBar, Level.ToString());
+            Util.WriteAt(Constant.BattleFieldScoreCol, Constant.BattleFieldStatusBar, Score.ToString().PadLeft(6, '0'));
+            Util.WriteAt(Constant.BattleFieldBestScoreCol, Constant.BattleFieldStatusBar, BestScore.ToString().PadLeft(6, '0'));
+        }
+
     }
 }
