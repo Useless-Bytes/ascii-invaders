@@ -495,22 +495,25 @@ namespace ASCII_Invaders
                     {
                         // Se o projétil atingiu um inimigo, marca o projétil como não disparado para ser reutilizado em futuros disparos
                         enemiesBullets[b].Shot = false;
+                        enemiesShooting--;
                     }
                     // Faz uma pausa para controlar a velocidade do movimento do projétil
                     Util.Wait(17);
 
                     // Limpa a posição anterior do projétil
-                    playerBullets[b].Clear();
+                    enemiesBullets[b].Clear();
 
                     // Move o projétil para cima e verifica se atingiu a base do campo de batalha
-                    if (playerBullets[b].Position.Y++ == Constant.BattleFieldBottom)
+                    if (enemiesBullets[b].Position.Y++ == Constant.BattleFieldBottom)
                     {
                         // Se o projétil atingiu a base do campo de batalha, marca o projétil como não disparado para ser reutilizado em futuros disparos
-                        playerBullets[b].Shot = false;
+                        enemiesBullets[b].Shot = false;
+                        enemiesShooting--;
                     }
                 }
             }
         }
+
         /// <summary>
         /// Método <c>Update</c> é responsável por atualizar o estado do jogo a cada ciclo do loop principal. Ele desenha o canhão do jogador, verifica se todos os inimigos foram derrotados para avançar para o próximo nível, randomiza a velocidade dos inimigos e atualiza a posição dos inimigos e projéteis. Além disso, ele atualiza a barra de status do campo de batalha com as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação.
         /// </summary>
