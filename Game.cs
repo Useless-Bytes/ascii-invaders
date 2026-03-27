@@ -12,8 +12,6 @@ namespace ASCII_Invaders
         private int enemiesShooting;
         private int maxEnemiesShooting;
         private  int _score;
-
-
         
         public  int Score
         {
@@ -54,7 +52,7 @@ namespace ASCII_Invaders
         private  ConsoleKey keyPressed;
 
         private Bullet[] playerBullets = new Bullet[Constant.PlayerBullets];
-        private Bullet[] enemiesBullets = new Bullet[Constant.EnemiesBullets];
+        private Bullet[] enemiesBullets;
         private Enemy[,] enemies = new Enemy[Constant.EnemiesRows, Constant.EnemiesPerRow];
 
         private  float enemiesSpeed = 10f;
@@ -115,8 +113,7 @@ namespace ASCII_Invaders
             // Limpa a tela, oculta o cursor e desabilita o CTRL-C para evitar que o jogo seja interrompido acidentalmente
             Console.Clear();
             Console.CursorVisible = false;
-            Console.TreatControlCAsInput = true; // disable CTRL-C
-            
+            Console.TreatControlCAsInput = true; // disable CTRL-C            
 
             keepRunning = true; // controle do game loop
             battleField = new BattleField(); // o campo de batalha
@@ -183,10 +180,6 @@ namespace ASCII_Invaders
                 playerBullets[b] = new Bullet();
             }
 
-            for (var b = 0; b < Constant.EnemiesBullets; b++)
-            {
-                enemiesBullets[b] = new Bullet(true);
-            }
 
             // Carrega os inimigos
             LoadEnemies();
@@ -197,7 +190,12 @@ namespace ASCII_Invaders
             // Exibe a tela de transição para o próximo nível
             battleField.ShowLevelSplashScreen(Level);
             enemiesShooting = 0;
-            maxEnemiesShooting = 20;
+            maxEnemiesShooting = 5;
+            enemiesBullets = new Bullet[maxEnemiesShooting];
+            for (var b = 0; b < maxEnemiesShooting; b++)
+            {
+                enemiesBullets[b] = new Bullet(true);
+            }
         }
 
         /// <summary>
@@ -237,7 +235,6 @@ namespace ASCII_Invaders
         /// Método <c>EnemyShoot</c> é responsável por disparar um projétil do inimigo. 
         /// Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. 
         /// Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o abaixo do inimigo selecionado e reproduz um som de tiro. 
-        /// O método retorna após disparar a quantidade máxima de tiros de inimigos.
         /// </summary>
         private void EnemyShoot(Enemy enemy)
         {
@@ -254,6 +251,7 @@ namespace ASCII_Invaders
 
                     // Reproduz um som de tiro
                     Util.PlayWavFile(Resource1.hit);
+                    return;
                 }
             }
         }

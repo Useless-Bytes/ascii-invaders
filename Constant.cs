@@ -28,7 +28,6 @@ namespace ASCII_Invaders
         public static readonly int EnemiesPerRow = 7;
         public static readonly int EnemiesRows = 5;
         public static readonly int PlayerBullets = 2;
-        public static readonly int EnemiesBullets = 10;
         public static readonly int EnemiesTimer = 10;        
 
         public static readonly int DirectionUp = 0;
