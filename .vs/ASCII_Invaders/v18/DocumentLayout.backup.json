@@ -7,24 +7,28 @@
       "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\gameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:gameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\battlefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:battlefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\gameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:gameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:constant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:imageascii.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\congratulations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|c:\\users\\alova\\onedrive\\source\\repos\\ascii-invaders\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20A13497-3277-4F81-A74E-469C401EC7B7}|ASCII_Invaders.csproj|solutionrelative:util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,24 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameObject.cs",
-              "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\GameObject.cs",
-              "RelativeDocumentMoniker": "GameObject.cs",
-              "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\GameObject.cs",
-              "RelativeToolTip": "GameObject.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAxwF8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T00:43:18.017Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ImageASCII.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\ImageASCII.cs",
               "RelativeDocumentMoniker": "ImageASCII.cs",
@@ -75,25 +62,24 @@
               "RelativeToolTip": "ImageASCII.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T00:34:15.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-31T00:34:15.826Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Enemy.cs",
               "RelativeDocumentMoniker": "Enemy.cs",
               "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Enemy.cs",
               "RelativeToolTip": "Enemy.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAQwDIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T00:33:59.254Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Congratulations.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Congratulations.cs",
               "RelativeDocumentMoniker": "Congratulations.cs",
@@ -101,12 +87,11 @@
               "RelativeToolTip": "Congratulations.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T00:33:30.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-31T00:33:30.881Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Bullet.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Bullet.cs",
               "RelativeDocumentMoniker": "Bullet.cs",
@@ -114,24 +99,24 @@
               "RelativeToolTip": "Bullet.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T00:33:18.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-31T00:33:18.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "Util.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Util.cs",
               "RelativeDocumentMoniker": "Util.cs",
               "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Util.cs",
               "RelativeToolTip": "Util.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAADwvykAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAwwH8AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T23:21:14.447Z"
+              "WhenOpened": "2026-03-24T23:21:14.447Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Cannon.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Cannon.cs",
               "RelativeDocumentMoniker": "Cannon.cs",
@@ -139,18 +124,17 @@
               "RelativeToolTip": "Cannon.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T23:09:26.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T23:09:26.143Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Constant.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Constant.cs",
               "RelativeDocumentMoniker": "Constant.cs",
               "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Constant.cs",
               "RelativeToolTip": "Constant.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAIwB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCMAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T22:48:29.19Z",
               "EditorCaption": ""
@@ -163,23 +147,35 @@
               "RelativeDocumentMoniker": "Game.cs",
               "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\Game.cs",
               "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAAH8BAAAAAAAAAADwv6MBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANoAAAAAAAAAAAAIwOcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T22:48:03.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "BattleField.cs",
               "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\BattleField.cs",
               "RelativeDocumentMoniker": "BattleField.cs",
               "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\BattleField.cs",
               "RelativeToolTip": "BattleField.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAALgAAAAAAAAAAAAYwNAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T00:43:02.843Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameObject.cs",
+              "DocumentMoniker": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\GameObject.cs",
+              "RelativeDocumentMoniker": "GameObject.cs",
+              "ToolTip": "C:\\Users\\alova\\OneDrive\\source\\repos\\ascii-invaders\\GameObject.cs",
+              "RelativeToolTip": "GameObject.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAxwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T00:43:18.017Z"
             }
           ]
         }

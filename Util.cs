@@ -124,8 +124,8 @@ using System.Threading;
 
         public static Position GetRandomEnemyPosition()
         {
-            var x = _random.Next(0, Constant.EnemiesPerRow + 1);
-            var y = _random.Next(0, Constant.EnemiesRows + 1);
+            var x = _random.Next(Constant.BattleFieldLeft +1, Constant.BattleFieldWidth - 1);
+            var y = _random.Next(Constant.BattleFieldTop, Constant.BattleFieldBottom + 1);
             return new Position(x, y);
         }
     }

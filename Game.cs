@@ -87,6 +87,30 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
+        /// Método <c>GetEnemy</c> retorna o inimigo na posição informada ou nulo se não houver inimigo nessa posição.
+        /// </summary>
+        /// <param name="position">Posição a ser verificada</param>
+        /// <returns>Inimigo se algum inimigo estiver na posição</returns>
+        Enemy GetEnemy(Position position)
+        {
+            for (var row = 0; row < Constant.EnemiesRows; row++)
+            {
+                for (var col = 0; col < Constant.EnemiesPerRow; col++)
+                {
+                    var enemy = enemies[row, col];
+                    if (enemy.Visible &&
+                        enemy.Position.Y == position.Y &&
+                        enemy.Position.X == position.X)
+                    {
+                        return enemy;
+                    }
+                }
+            }
+            return null;
+        }
+
+
+        /// <summary>
         /// <c>DrawEnemies</c> mostra os inimigos na tela.
         /// </summary>
         private void DrawEnemies()
@@ -121,7 +145,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>Init</c> é responsável por inicializar o jogo, configurando o console, exibindo o logotipo do jogo, criando os objetos necessários para o jogo, desenhando o campo de batalha e exibindo a tela de introdução. Ele também define as variáveis de controle do jogo, como a direção dos inimigos e a pontuação inicial.
+        /// Método <c>Init</c> é responsável por inicializar o jogo, configurando o console, exibindo o logotipo do jogo, criando os objetos necessários para o jogo, desenhando o campo de batalha e exibindo a tela de introdução.
         /// </summary>
         public void Init()
         {
@@ -170,7 +194,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>NextLevel</c> é responsável por avançar para o próximo nível do jogo. Ele verifica se o nível atual é o último nível definido, e se for, exibe uma mensagem de parabéns e reinicia o jogo. Caso contrário, ele incrementa o número do nível, recarrega os projéteis e os inimigos, atualiza a contagem de inimigos vivos e exibe uma tela de transição para o próximo nível.
+        /// Método <c>NextLevel</c> é responsável por avançar para o próximo nível do jogo.
         /// </summary>
         private void NextLevel()
         {
@@ -214,7 +238,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>Finish</c> é responsável por finalizar o jogo, limpando a tela, tornando o cursor visível novamente e exibindo uma mensagem de despedida. Ele é chamado quando o loop principal do jogo termina, indicando que o jogador escolheu sair do jogo ou que ocorreu um evento de game over.
+        /// Método <c>Finish</c> é responsável por finalizar o jogo, limpando a tela, tornando o cursor visível novamente e exibindo uma mensagem de despedida.
         /// </summary>
         private void Finish()
         {
@@ -224,7 +248,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>PlayerShoot</c> é responsável por disparar um projétil do canhão do jogador. Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o na frente do canhão e reproduz um som de tiro. O método retorna após disparar o primeiro projétil disponível, garantindo que apenas um projétil seja disparado por vez.
+        /// Método <c>PlayerShoot</c> é responsável por disparar um projétil do canhão do jogador.
         /// </summary>
         private void PlayerShoot()
         {
@@ -248,8 +272,6 @@ namespace ASCII_Invaders
 
         /// <summary>
         /// Método <c>EnemyShoot</c> é responsável por disparar um projétil do inimigo. 
-        /// Ele percorre a lista de projéteis disponíveis e verifica se há algum que ainda não foi disparado. 
-        /// Se encontrar um projétil não disparado, ele marca o projétil como disparado, posiciona-o abaixo do inimigo selecionado e reproduz um som de tiro. 
         /// </summary>
         private void EnemyShoot(Enemy enemy)
         {
@@ -264,6 +286,9 @@ namespace ASCII_Invaders
                     bullet.Position.X = enemy.Position.X;
                     bullet.Position.Y = enemy.Position.Y + 1;
 
+                    enemy.Shoot();
+                    enemiesShooting++;
+
                     // Reproduz um som de tiro
                     Util.PlayWavFile(Resource1.hit);
                     return;
@@ -272,7 +297,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>CheckKeypressed</c> é responsável por verificar se alguma tecla foi pressionada pelo jogador e executar a ação correspondente. Ele utiliza a propriedade Console.KeyAvailable para verificar se há uma tecla na fila de entrada, e se houver, lê a tecla usando Console.ReadKey(true) e executa uma ação com base na tecla pressionada. As ações incluem mover o canhão para a esquerda ou direita, disparar um projétil, alternar o som, pausar o jogo ou sair do jogo. Após processar a tecla pressionada, o método chama Update() para atualizar a tela do jogo.
+        /// Método <c>CheckKeypressed</c> é responsável por verificar se alguma tecla foi pressionada pelo jogador e executar a ação correspondente.
         /// </summary>
         private void CheckKeypressed()
         {
@@ -319,7 +344,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>RandomizeEnemiesSpeed</c> é responsável por randomizar a velocidade dos inimigos com base no nível atual do jogo. Ele utiliza a classe Random para gerar um número aleatório entre 0 e 1, multiplica esse número pelo nível atual e subtrai o resultado da velocidade base dos inimigos. Isso faz com que a velocidade dos inimigos aumente à medida que o jogador avança para níveis mais altos, tornando o jogo mais desafiador.
+        /// Método <c>RandomizeEnemiesSpeed</c> é responsável por randomizar a velocidade dos inimigos com base no nível atual do jogo.
         /// </summary>
         /// <returns>randomized enemy speed</returns>
         private float RandomizeEnemiesSpeed()
@@ -330,7 +355,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>TheEnemyLanded</c> é responsável por verificar se um inimigo atingiu o chão do campo de batalha. Ele recebe um objeto Enemy como parâmetro e compara a posição vertical do inimigo com a posição do chão do campo de batalha. Se a posição vertical do inimigo for igual à posição do chão, o método retorna true, indicando que o inimigo aterrissou. Caso contrário, retorna false, indicando que o inimigo ainda está no ar.
+        /// Método <c>TheEnemyLanded</c> é responsável por verificar se um inimigo atingiu o chão do campo de batalha.
         /// </summary>
         /// <param name="enemy">Inimigo</param>
         /// <returns></returns>
@@ -346,7 +371,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>UpdateEnemies</c> é responsável por atualizar a posição dos inimigos no campo de batalha. Ele percorre a matriz de inimigos e move cada inimigo para baixo, para a esquerda ou para a direita, dependendo da direção atual dos inimigos. O método também verifica se algum inimigo atingiu o chão do campo de batalha, o que resultaria em um game over. Além disso, ele verifica se algum inimigo atingiu as bordas do campo de batalha para determinar se os inimigos devem mudar de direção e descer. A velocidade dos inimigos é controlada por uma variável que é randomizada com base no nível atual do jogo.
+        /// Método <c>UpdateEnemies</c> é responsável por atualizar a posição dos inimigos no campo de batalha.
         /// </summary>
         private void UpdateEnemies()
         {
@@ -355,7 +380,6 @@ namespace ASCII_Invaders
 
             enemiesSpeed = Constant.EnemiesTimer;
 
-            var randomEnemyPosition = Util.GetRandomEnemyPosition();
 
             // Atualiza a posição dos inimigos no campo de batalha
             for (var row = 0; row < Constant.EnemiesRows; row++)
@@ -406,17 +430,6 @@ namespace ASCII_Invaders
                             goDown = true;
                         }
                     }
-                    if (enemiesShooting < maxEnemiesShooting &&
-                        enemy.Visible &&
-                        !enemy.IsShooting &&
-                        randomEnemyPosition.X == col &&
-                        randomEnemyPosition.Y == row)
-                    {
-                        // Disparar
-                        enemy.Shoot();
-                        EnemyShoot(enemy);
-                        enemiesShooting++;
-                    }
                 }
             }
             // Atualiza a direção dos inimigos com base nas verificações realizadas
@@ -426,7 +439,25 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>CheckEnemyHit</c> é responsável por verificar se um projétil disparado pelo jogador atingiu algum inimigo no campo de batalha. Ele percorre a matriz de inimigos e compara a posição do projétil com a posição de cada inimigo visível. Se o projétil atingir um inimigo, o método atualiza a pontuação do jogador com base no nível e na linha do inimigo, reproduz um som de explosão, destrói o inimigo e decrementa a contagem de inimigos vivos. O método retorna true se algum inimigo foi atingido, indicando que o projétil deve ser removido do jogo, ou false se nenhum inimigo foi atingido, permitindo que o projétil continue em movimento.
+        /// <c>EnemyAttack</c> dispara os tiros inimigos
+        /// </summary>
+        private void EnemyAttack()
+        {
+            for (var fire = 0; fire < maxEnemiesShooting; fire++)
+            {
+                var randomEnemyPosition = Util.GetRandomEnemyPosition();
+                                
+                // Disparar
+                var enemy = GetEnemy(randomEnemyPosition);
+                if (enemy != null)
+                {
+                    EnemyShoot(enemy);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método <c>CheckEnemyHit</c> é responsável por verificar se um projétil disparado pelo jogador atingiu algum inimigo no campo de batalha.
         /// </summary>
         /// <param name="bullet">Projétil</param>
         /// <returns>Verdadeiro se algum inimigo foi atingido</returns>
@@ -476,7 +507,6 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>UpdatePlayerBullets</c> é responsável por atualizar a posição dos projéteis disparados pelo jogador e verificar se eles atingiram algum inimigo ou se saíram do campo de batalha. Ele percorre a lista de projéteis e, para cada projétil que foi disparado, desenha o projétil na tela, verifica se ele atingiu algum inimigo usando o método CheckEnemyHit, e se atingiu, marca o projétil como não disparado. Em seguida, faz uma pausa para controlar a velocidade do movimento do projétil, limpa a posição anterior do projétil e move o projétil para cima. Se o projétil atingir o topo do campo de batalha, ele é marcado como não disparado para ser reutilizado em futuros disparos.
         /// </summary>
         void UpdatePlayerBullets()
         {
@@ -511,10 +541,6 @@ namespace ASCII_Invaders
 
         /// <summary>
         /// Método <c>UpdateEnemiesBullets</c> é responsável por atualizar a posição dos projéteis disparados pelos inimigos e verificar se eles atingiram o jogador ou se saíram do campo de batalha. 
-        /// Ele percorre a lista de projéteis e, para cada projétil que foi disparado, desenha o projétil na tela, verifica se ele atingiu o jogador usando o método CheckPlayerHit, 
-        /// e se atingiu, marca o projétil como não disparado. 
-        /// Em seguida, faz uma pausa para controlar a velocidade do movimento do projétil, limpa a posição anterior do projétil e move o projétil para baixo. 
-        /// Se o projétil atingir a base do campo de batalha, ele é marcado como não disparado para ser reutilizado em futuros disparos.
         /// </summary>
         void UpdateEnemiesBullets()
         {
@@ -538,7 +564,7 @@ namespace ASCII_Invaders
                     // Limpa a posição anterior do projétil
                     enemiesBullets[b].Clear();
 
-                    // Move o projétil para cima e verifica se atingiu a base do campo de batalha
+                    // Move o projétil para baixo e verifica se atingiu a base do campo de batalha
                     if (enemiesBullets[b].Position.Y++ == Constant.BattleFieldBottom)
                     {
                         // Se o projétil atingiu a base do campo de batalha, marca o projétil como não disparado para ser reutilizado em futuros disparos
@@ -550,7 +576,7 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
-        /// Método <c>Update</c> é responsável por atualizar o estado do jogo a cada ciclo do loop principal. Ele desenha o canhão do jogador, verifica se todos os inimigos foram derrotados para avançar para o próximo nível, randomiza a velocidade dos inimigos e atualiza a posição dos inimigos e projéteis. Além disso, ele atualiza a barra de status do campo de batalha com as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação.
+        /// Método <c>Update</c> é responsável por atualizar o estado do jogo a cada ciclo do loop principal.
         /// </summary>
         void Update()      
          {
@@ -570,6 +596,9 @@ namespace ASCII_Invaders
                 // Se a velocidade dos inimigos for menor que um determinado valor, atualiza a posição dos inimigos
                 UpdateEnemies();
             }
+
+            // Disparos dos inimigos.
+            EnemyAttack();
 
             // Atualiza a posição dos projéteis disparados pelo jogador e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
             UpdatePlayerBullets();
