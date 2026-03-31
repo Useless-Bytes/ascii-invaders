@@ -87,6 +87,21 @@ namespace ASCII_Invaders
         }
 
         /// <summary>
+        /// <c>DrawEnemies</c> mostra os inimigos na tela.
+        /// </summary>
+        private void DrawEnemies()
+        {
+            for (var row = 0; row < Constant.EnemiesRows; row++)
+            {
+                for (var col = 0; col < Constant.EnemiesPerRow; col++)
+                {
+                    enemies[row, col].Draw();
+                }
+            }
+        }
+
+
+        /// <summary>
         /// Método <c>LoadEnemies</c> carrega os inimigos na matriz de inimigos, posicionando-os de acordo com a linha e coluna correspondente. Cada inimigo é criado como um objeto da classe Enemy e adicionado à matriz enemies.
         /// </summary>
         private void LoadEnemies()
@@ -350,18 +365,6 @@ namespace ASCII_Invaders
                 {
                     var enemy = enemies[row, col];
 
-                    if (enemiesShooting < maxEnemiesShooting &&
-                        enemy.Visible && 
-                        !enemy.IsShooting && 
-                        randomEnemyPosition.X == col && 
-                        randomEnemyPosition.Y == row)
-                    {
-                        // Disparar
-                        enemy.Shoot();
-                        EnemyShoot(enemy);
-                        enemiesShooting++;
-                    }
-
                     // Verifica se o inimigo está visível antes de movê-lo
                     if (enemiesGoDown)
                     {
@@ -402,6 +405,17 @@ namespace ASCII_Invaders
                             goLeft = true;
                             goDown = true;
                         }
+                    }
+                    if (enemiesShooting < maxEnemiesShooting &&
+                        enemy.Visible &&
+                        !enemy.IsShooting &&
+                        randomEnemyPosition.X == col &&
+                        randomEnemyPosition.Y == row)
+                    {
+                        // Disparar
+                        enemy.Shoot();
+                        EnemyShoot(enemy);
+                        enemiesShooting++;
                     }
                 }
             }
@@ -562,6 +576,9 @@ namespace ASCII_Invaders
 
             // Atualiza a posição dos projéteis disparados pelos inimigos e verifica se eles atingiram algum inimigo ou se saíram do campo de batalha
             UpdateEnemiesBullets();
+
+            // Desenha os inimigos na tela
+            DrawEnemies();
 
             // Atualiza as informações atuais do jogo, como o nível, a pontuação e a melhor pontuação
             UpdateGameInfo();

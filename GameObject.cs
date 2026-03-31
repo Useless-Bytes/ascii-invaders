@@ -66,7 +66,6 @@ namespace ASCII_Invaders
         public void MoveLeft()
         {
             Position.MoveLeft();
-            Draw();
         }
 
         /// <summary>
@@ -75,7 +74,6 @@ namespace ASCII_Invaders
         public void MoveRight()
         {
             Position.MoveRight();
-            Draw();
         }
 
         /// <summary>
@@ -84,7 +82,6 @@ namespace ASCII_Invaders
         public void MoveUp()
         {
             Position.MoveUp();
-            Draw();
         }
 
         /// <summary>
@@ -93,7 +90,6 @@ namespace ASCII_Invaders
         public void MoveDown()
         {
             Position.MoveDown();
-            Draw();
         }
     }
 }
